@@ -2,7 +2,7 @@
 
 'use strict';
 
-window.renderStatistics = function (ctx, names, times) {
+window.renderStatistics = function(ctx, names, times) {
   //тень
   ctx.fillStyle = 'rgba(0, 0, 0, 0.7)';
   ctx.fillRect(110, 20, 420, 270);
@@ -49,7 +49,7 @@ window.renderStatistics = function (ctx, names, times) {
     ctx.fillStyle = 'rgba(0, 0, 255,' + ((randomInteger(2, 10) * 0.1).toFixed(1)) + ')';
     ctx.fillRect(240 + 90 * i, 240, 40, -times[i] * step);
   }
-  //рисуем имена и время остальных участников
+  // рисуем имена и время остальных участников
   for (var i = 0; i< times.length -1; i++){
       ctx.fillStyle = 'black';
       ctx.fillText(names[i], 240 + 90 * i, 260);
