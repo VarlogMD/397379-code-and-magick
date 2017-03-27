@@ -18,7 +18,7 @@ window.renderStatistics = function (ctx, names, times) {
   var max = -1;
   var maxIndex = -1;
   //расчет максимального времени
-  for (var i = 0 ; i < times.length; i++) {  
+  for (var i = 0; i< times.length; i++){  
     var time = times[i];
     if (time > max) {
       max = time;
@@ -39,18 +39,18 @@ window.renderStatistics = function (ctx, names, times) {
   //убераем 'Вы' из .names[]
   names.splice(r, 1); 
   //генерируем прозрачность
-  function randomInteger(min, max) { 
+  function randomInteger(min, max){ 
     var rand = min + Math.random() * (max + 1 - min);
     rand = Math.floor(rand);
     return rand;
     }
   //Рисуем гистограммы остальных участников
-  for (var i = 0; i < times.length -1; i++) {
+  for (var i = 0; i< times.length -1; i++) {
     ctx.fillStyle = 'rgba(0, 0, 255,' + ((randomInteger(2, 10) * 0.1).toFixed(1)) + ')';
     ctx.fillRect(240 + 90 * i, 240, 40, -times[i] * step);
   }
   //рисуем имена и время остальных участников
-  for (var i = 0; i < times.length -1; i++){
+  for (var i = 0; i< times.length -1; i++){
       ctx.fillStyle = 'black';
       ctx.fillText(names[i], 240 + 90 * i, 260);
   ctx.fillText(times[i].toFixed(0), 240 + 90 * i, 240 - times[i] * step -10);
