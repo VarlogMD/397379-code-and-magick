@@ -14,21 +14,21 @@ window.renderStatistics = function (ctx, names, times) {
   ctx.font = '16px PT Mono';
   ctx.fillText('Ура вы победили!', 120, 40);
   ctx.fillText('Список результатов:', 120, 60);
-  var max = -1;
-  var maxIndex = -1;
+  var maxL = -1;
+  var maxLIndex = -1;
   // расчет максимального времени
   for (var i = 0; i < times.length; i++) {
-	var time = times[i];
-    if (time > max) {
-      max = time;
-      maxIndex = i;
+    var time = times[i];
+    if (time > maxL) {
+      maxL = time;
+      maxLIndex = i;
     }
   }
   // ищем индекс игрока в .names[]
-  var r = names.indexOf('Вы'); 
+  var r = names.indexOf('Вы');
   // лимит высоты гистограммы
   var histogramHeight = 150;
-  var step = histogramHeight / (max - 0);
+  var step = histogramHeight / (maxL - 0);
   // рисуем гистограмму игрока 'Вы'
   ctx.fillStyle = 'rgba(255, 0, 0, 1)';
   ctx.fillRect(150, 240, 40, -times[r] * step);
@@ -39,19 +39,20 @@ window.renderStatistics = function (ctx, names, times) {
   names.splice(r, 1);
   // генерируем прозрачность
   function randomInteger(min, max) {
-  var rand = min + Math.random() * (max + 1 - min);
+    var rand = min + Math.random() * (max + 1 - min);
     rand = Math.floor(rand);
     return rand;
   }
   // Рисуем гистограммы остальных участников
-  for (var i = 0; i < times.length - 1; i++) {
+  for (var j = 0; j < times.length - 1; j++) {
     ctx.fillStyle = 'rgba(0, 0, 255,' + ((randomInteger(2, 10) * 0.1).toFixed(1)) + ')';
-    ctx.fillRect(240 + 90 * i, 240, 40, -times[i] * step);
+    ctx.fillRect(240 + 90 * j, 240, 40, -times[j] * step);
   }
   // рисуем имена и время остальных участников
-  for (var i = 0; i < times.length - 1; i++) {
+  for (var k = 0; k < times.length - 1; k++) {
     ctx.fillStyle = 'black';
-    ctx.fillText(names[i], 240 + 90 * i, 260);
-    ctx.fillText(times[i].toFixed(0), 240 + 90 * i, 240 - times[i] * step - 10);
+    ctx.fillText(names[k], 240 + 90 * k, 260);
+    ctx.fillText(times[k].toFixed(0), 240 + 90 * k, 240 - times[k] * step - 10);
   }
-}; 
+};
+'\n'
