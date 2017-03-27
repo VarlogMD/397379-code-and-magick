@@ -54,4 +54,4 @@ window.renderStatistics = function (ctx, names, times) {
     ctx.fillText(names[k], 240 + 90 * k, 260);
     ctx.fillText(times[k].toFixed(0), 240 + 90 * k, 240 - times[k] * step - 10);
   }
-}\u000d;
+}\u000d
