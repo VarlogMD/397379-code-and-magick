@@ -17,7 +17,7 @@ window.renderStatistics = function (ctx, names, times) {
   var maxL = -1;
   var Index = -1;
   // расчет максимального времени
-  for (var i = 0; i< times.length; i++){  
+  for (var i = 0; i < times.length; i++) {
     var time = times[i];
     if (time > maxL) {
       maxL = time;
