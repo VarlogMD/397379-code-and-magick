@@ -23,11 +23,11 @@ window.renderStatistics = function (ctx, names, times) {
       ctx.fillstyle = 'rgba(255, 0, 0, 1)', 'black'
     }
 
-    /*лимит высоты гистограммы*/
+  /*лимит высоты гистограммы*/
     var histogramHeight = 150;
     var step = histogramHeight / max;
 
-    /*рисуем гистограмму*/
+  /*рисуем гистограмму*/
     for (var i = 0 ; i < times.length; i++){
       ctx.fillStyle = getRandomColor();
       ctx.fillRect(150, 240, 40, - times[i] * step);
@@ -35,7 +35,7 @@ window.renderStatistics = function (ctx, names, times) {
       ctx.fillText(times[i].toFixed(0), 150 + 90 * i, 240 - times[i] * step -10);
     }
 
-    /*генерируем прозрачность*/
+  /*генерируем прозрачность*/
     function randomInteger(min, max) {
       var rand = min + Math.random() * (max + 1 - min);
       rand = Math.floor(rand);
