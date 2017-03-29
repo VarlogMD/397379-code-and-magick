@@ -17,17 +17,20 @@ window.renderStatistics = function (ctx, names, times) {
 
   /*Определяем цвет бара*/
   function getRandomColor(playerName) {
-    if (playerName != names.'Вы') {
-      ctx.fillstyle = 'rgba(0, 0, 255,' + ((randomInteger(2, 10) * 0.1).toFixed(1)) + ')', 'black;'
+    if (playerName !=='Вы') {
+      return 'rgba(0, 0, 255,' + ((randomInteger(2, 10) * 0.1).toFixed(1)) + ')';
     } else {
-      ctx.fillstyle = 'rgba(255, 0, 0, 1)', 'black'
+      return  'rgba(255, 0, 0, 1)';
     }
-
-  /*лимит высоты гистограммы*/
+    
+    var max = -1;
+    var maxIndex = -1;
+    
+    /*лимит высоты гистограммы*/
     var histogramHeight = 150;
     var step = histogramHeight / max;
 
-  /*рисуем гистограмму*/
+    /*рисуем гистограмму*/
     for (var i = 0 ; i < times.length; i++){
       ctx.fillStyle = getRandomColor();
       ctx.fillRect(150, 240, 40, - times[i] * step);
@@ -35,7 +38,7 @@ window.renderStatistics = function (ctx, names, times) {
       ctx.fillText(times[i].toFixed(0), 150 + 90 * i, 240 - times[i] * step -10);
     }
 
-  /*генерируем прозрачность*/
+    /*генерируем прозрачность*/
     function randomInteger(min, max) {
       var rand = min + Math.random() * (max + 1 - min);
       rand = Math.floor(rand);
@@ -43,3 +46,4 @@ window.renderStatistics = function (ctx, names, times) {
     }
   }
 };
+
