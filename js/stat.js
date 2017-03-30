@@ -25,11 +25,10 @@ window.renderStatistics = function (ctx, names, times) {
   }
 
   /* расчет максимального значения */
-  var getMaxValue = function(arrayName) {
+  var getMaxValue = function (arrayName) {
     var maxValue = 0;
     for (i = 0; i < arrayName.length; i++) {
       var value = arrayName[i];
-      console.log(value);
       if (value > maxValue) {
         maxValue = value;
       }
